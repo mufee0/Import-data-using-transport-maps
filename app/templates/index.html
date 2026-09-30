@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Employee Import Studio</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><div><h1>Employee Import Studio</h1><p>Import Set → Transform Map → Coalesce → Reports → Dashboard</p></div><span id="health" class="pill">Checking API…</span></header>
+<main>
+<section class="card"><h2>1. Load Data</h2><p>Upload the Sample Spreadsheet or another Excel/CSV file with Employee ID, Employee Name, Email, Department and Location.</p><div class="upload"><input id="file" type="file" accept=".xlsx,.csv"><button onclick="uploadFile()">Create Import Set</button></div><div id="uploadMsg"></div></section>
+<section class="card"><h2>2. Import Sets & Transform</h2><div class="toolbar"><button onclick="loadImportSets()">Refresh</button><select id="importSet"></select><button onclick="transformSelected()">Run Transform</button></div><div id="transformMsg"></div><div id="rows"></div></section>
+<section class="grid2"><div class="card"><h2>Employees by Department</h2><div id="deptChart" class="bars"></div></div><div class="card"><h2>Employees by Location</h2><div id="locChart" class="bars"></div></div></section>
+<section class="card"><h2>3. Employee List Report</h2><div class="tablewrap"><table><thead><tr><th>Employee ID</th><th>Employee Name</th><th>Email</th><th>Department</th><th>Location</th></tr></thead><tbody id="employees"></tbody></table></div></section>
+<section class="card"><h2>4. Transform History</h2><div class="tablewrap"><table><thead><tr><th>Import Set</th><th>State</th><th>Total</th><th>Inserted</th><th>Updated</th><th>Ignored</th><th>Errors</th><th>Created</th></tr></thead><tbody id="history"></tbody></table></div></section>
+<section class="card ai"><h2>5. AI Import Assistant</h2><p>Optional LLM explanation layer. Business transformation remains deterministic.</p><textarea id="question">Explain the latest import results and identify data-quality concerns.</textarea><button onclick="askAI()">Ask AI</button><pre id="aiAnswer"></pre></section>
+</main><script src="/static/app.js"></script></body></html>
